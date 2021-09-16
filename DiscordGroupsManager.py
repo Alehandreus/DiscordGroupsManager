@@ -110,8 +110,8 @@ class DiscordGroupsManager:
                 # permissions for group category
                 group_category_overwrites = {
                     self.guild.default_role: discord.PermissionOverwrite(read_messages=False),
-                    group_member_role: discord.PermissionOverwrite(read_messages=True),
-                    group_admin_role: discord.PermissionOverwrite(read_messages=False, manage_channels=True),
+                    group_member_role: discord.PermissionOverwrite(read_messages=True, manage_messages=True),
+                    group_admin_role: discord.PermissionOverwrite(read_messages=False, manage_messages=True, manage_channels=True),
                 }
 
                 if not (group_category := discord_get(self.guild.categories, name=group_category_name)):  # category does not exist, need to create
